@@ -1,0 +1,198 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    
+$(document).ready(function() {
+    $('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").hide();
+        
+        $(newCurrentValue).show();            
+ 
+        e.preventDefault();
+
+        $(".view-all-hidden").show();
+
+    });
+
+
+    $('#external').click(function() {
+
+        $('.big_number').removeClass('txt-reversed');
+
+        $('.txt-backlog').addClass('txt-reversed');
+
+    });
+
+    $('#internal').click(function() {
+
+    	$('.big_number').removeClass('txt-reversed');
+
+        $('.txt-discovery').addClass('txt-reversed');
+
+    });
+
+    $('#managed').click(function() {
+
+        $('.big_number').removeClass('txt-reversed');
+
+        $('.txt-alpha').addClass('txt-reversed');
+
+    });
+
+    $('#hosted').click(function() {
+
+    	$('.big_number').removeClass('txt-reversed');
+        
+        $('.txt-beta').addClass('txt-reversed');
+
+    });
+
+    $('#public').click(function() {
+
+    	$('.big_number').removeClass('txt-reversed');
+
+        $('.txt-live').addClass('txt-reversed');
+
+    });
+    
+
+	$('.link-all').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").show();
+        
+        $(".view-all-hidden").hide();
+
+        $('.txt-backlog, .txt-discovery, .txt-alpha, .txt-beta, .txt-live').removeClass('txt-reversed');
+
+    });
+    
+    // $('a.link.link-all').click(function() {
+    
+    //     $('.impact-link.active').removeClass('active');
+        
+    //     $(this).addClass('active');
+    // });
+
+});
+
+  
+
+</script>
+
+	 <p style="margin-top:30px; margin-bottom:30px;"> 
+			
+		<!-- (<a href="/location/">order by location</a>)
+		(<a href="/priority/">order by priority</a>) -->
+	</p>
+
+	<div class="govuk-grid-row">
+		<section class="tabs"> 
+           <div class="tab-links">
+				<section class="govuk-grid-column-one-third margin-bottom">
+					<a id="external" href="#tab1"><div class="tag backlog">External services</div>
+					<div class="big_number txt-backlog">6</div></a>
+				</section>
+				<section class="govuk-grid-column-one-third margin-bottom">
+					<a id="internal" href="#tab2"><div class="tag discovery">Internal services</div>
+					<div class="big_number txt-discovery">4</div></a>
+				</section>
+				<!-- <section class="column-fifth  margin-bottom">
+					<a id="managed" href="#tab3"><div class="tag alpha">Managed Applications</div>
+					<div class="big_number txt-alpha">0</div></a>
+				</section>
+				<section class="column-fifth  margin-bottom">
+					<a id="hosted" href="#tab4"><div class="tag beta">Hosted Applications</div>
+					<div class="big_number txt-beta">0</div></a>
+				</section> -->
+				<section class="govuk-grid-column-one-third  margin-bottom">
+					<a id="public" href="#tab5"><div class="tag live">Cloud services</div>
+					<div class="big_number txt-live">7</div></a>
+				</section>
+			</div>
+		</section>
+	</div>
+
+	<p style="margin-top:50px; margin-bottom:50px;">
+		These are the services and systems the Digital and Technology (D&T) team supports.
+
+	
+	<div>
+        <a class="link link-all view-all-hidden float-right" href="#all">View all services</a>
+    </div>
+
+	<div class="govuk-grid-row">	
+
+		<div class="tab1 tab5 service-area">
+			
+			<h2 class="heading-medium"><a href="/apprenticeships">Apprenticeships</a></h2>
+
+		</div>
+
+		<div class="tab1 tab5 service-area">	
+		
+			<h2 class="heading-medium "><a href="/data-collection">Data Collection</a></h2>
+
+		</div>
+
+		<div class="tab2 service-area">
+				
+				<h2 class="heading-medium "><a href="/end-user-computing">End User Computing</a></h2>
+
+			</div>
+
+			<div class="tab1 tab2 tab5 service-area">
+				
+				<h2 class="heading-medium "><a href="/funding-and-contracting">Funding and Contracting</a></h2>
+
+			</div>
+
+			<div class="tab1 tab2 tab5 service-area">
+		
+				<h2 class="heading-medium "><a href="/idams">Identity and access management service (IdAMS)</a></h2>
+
+			</div>
+
+			<div class="tab1 tab5 service-area">	
+		
+				<h2 class="heading-medium "><a href="/learning-records-service">Learning Records Service (LRS)</a></h2>
+
+			</div>	
+		
+			<div class="tab2 tab5 service-area">	
+		
+				<h2 class="heading-medium "><a href="/management-information">Management Information</a></h2>
+
+			</div>
+
+			<div class="tab1 tab5 service-area">	
+		
+				<h2 class="heading-medium "><a href="/national-career-service">National Careers Service (NCS)</a></h2>
+
+		</div>
+		
+		</div>
+	</div>
+
+			<p style="margin-top: 100px">Last updated 05 May 2017 <a href="/about">About the digital portfolio</a></p><p>
+
+</p></main>
+
+{% endblock %}
+
+
